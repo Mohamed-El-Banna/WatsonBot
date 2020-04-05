@@ -173,9 +173,9 @@ public class WatsonResponse {
             @SerializedName("initialized")
             private boolean initialized;
             @SerializedName("dialog_turn_counter")
-            private int dialogTurnCounter;
+            private float dialogTurnCounter;
             @SerializedName("dialog_request_counter")
-            private int dialogRequestCounter;
+            private float dialogRequestCounter;
             @SerializedName("_node_output_map")
             private NodeOutputMapBean nodeOutputMap;
             @SerializedName("last_branch_node")
@@ -195,19 +195,19 @@ public class WatsonResponse {
                 this.initialized = initialized;
             }
 
-            public int getDialogTurnCounter() {
+            public float getDialogTurnCounter() {
                 return dialogTurnCounter;
             }
 
-            public void setDialogTurnCounter(int dialogTurnCounter) {
+            public void setDialogTurnCounter(float dialogTurnCounter) {
                 this.dialogTurnCounter = dialogTurnCounter;
             }
 
-            public int getDialogRequestCounter() {
+            public float getDialogRequestCounter() {
                 return dialogRequestCounter;
             }
 
-            public void setDialogRequestCounter(int dialogRequestCounter) {
+            public void setDialogRequestCounter(float dialogRequestCounter) {
                 this.dialogRequestCounter = dialogRequestCounter;
             }
 
@@ -300,7 +300,7 @@ public class WatsonResponse {
         @SerializedName("intent")
         private String intent;
         @SerializedName("confidence")
-        private int confidence;
+        private float confidence;
 
         public String getIntent() {
             return intent;
@@ -310,11 +310,11 @@ public class WatsonResponse {
             this.intent = intent;
         }
 
-        public int getConfidence() {
+        public float getConfidence() {
             return confidence;
         }
 
-        public void setConfidence(int confidence) {
+        public void setConfidence(float confidence) {
             this.confidence = confidence;
         }
     }

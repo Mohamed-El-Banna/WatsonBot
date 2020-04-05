@@ -14,8 +14,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  **/
 
 public class WatsonClient {
-    private static final String BASE_URl = "https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/0f3156f1-c501-4d4b-b562-bffc15caae51/v1/workspaces/5c5f025a-67d1-4d3f-98a1-c4c97cdca75b/";
-    String baseAuth = "apikey" + ":" + "rj0tYNAsBZViBKlTWdmzfNlcVE2OouJuHD8wCRWMoqfs";
+    //ToDo Change your base url , workspace_id , api_key and version date(skill creation date)
+    private static final String BASE_URL = "https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/xx....xx/v1/workspaces/";
+    private static final String AR_WORKSPACE_ID = "xx....xx/";
+    private static final String EN_WORKSPACE_ID = "xx....xx/";
+    //    final String WORKSPACE_LANGUAGE_ID = getDeviceLanguage();
+    String baseAuth = "apikey" + ":" + "xx....xx";
     String apiKey = Base64.encodeToString(baseAuth.getBytes(), Base64.NO_WRAP);
     String authorization = "Basic " + apiKey;
 
@@ -24,7 +28,7 @@ public class WatsonClient {
 
     public WatsonClient() {
         Retrofit mRetrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URl)
+                .baseUrl(BASE_URL + EN_WORKSPACE_ID)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mService = mRetrofit.create(WatsonService.class);
@@ -37,7 +41,13 @@ public class WatsonClient {
     }
 
     public Call<WatsonResponse> getBotReplay(WatsonRequest mRequest) {
-        return mService.getBotReplay(authorization, "2020-04-01", mRequest);
+        return mService.getBotReplay(authorization, "2013-01-25", mRequest);
     }
+
+//    private String getDeviceLanguage() {
+//        if (Locale.getDefault().getLanguage().equalsIgnoreCase("en"))
+//            return EN_WORKSPACE_ID;
+//        else return AR_WORKSPACE_ID;
+//    }
 
 }

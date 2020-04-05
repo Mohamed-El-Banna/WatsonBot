@@ -1,16 +1,21 @@
 package com.dev_m_elbanna.watsonbot.network.pojo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created By Mohamed El Banna On 4/5/2020
  **/
-public class Message {
+public class MessageResponse {
     private String userName;
     private String message;
+    private String messageTime;
 
-    public Message() {
+    public MessageResponse() {
     }
 
-    public Message(String userName, String message) {
+    public MessageResponse(String userName, String message) {
         this.userName = userName;
         this.message = message;
     }
@@ -29,5 +34,13 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getMessageTime() {
+        return new SimpleDateFormat("h:mm a", Locale.getDefault()).format(new Date());
+    }
+
+    public void setMessageTime(String messageTime) {
+        this.messageTime = messageTime;
     }
 }
